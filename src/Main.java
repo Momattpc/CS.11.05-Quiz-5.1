@@ -8,8 +8,15 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
+        int[] newArray;
+        newArray = new int[array1.length + array2.length];
+        for (int i = 0; i < array1.length; i++){
+            newArray[i] = array1[i];
+        }
+        for (int j = 0; j < array2.length; j++){
+            newArray[j+array1.length] = array2[j];
+        }
+        return newArray;
 
     }
 
@@ -21,8 +28,23 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
+        int[] newArray;
+        newArray = new int[array1.length + array2.length];
+        int pair = 0;
+        for (int i = 0; i < array1.length; i+=2){
 
-        return null;
+                newArray[i] =  array1[i-pair];
+                newArray[i+1] = array2[i-pair];
+                pair++;
+
+
+
+
+
+            }
+
+        return newArray;
+
 
     }
 
@@ -34,8 +56,13 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
+        int[] newArray;
+        newArray = new int[array1.length];
+        for (int i = 0; i < array1.length; i++){
+            newArray[i] = array1[i] * array2[i];
+        }
 
-        return null;
+        return newArray;
 
     }
 
@@ -56,14 +83,26 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
+        int[] array;
+        array = new int[words.length];
+        for (int i = 0; i < words.length; i++){
+            array[i] = countCapitalLetters(words[i]);
+        }
+        return array;
 
-        return null;
 
     }
 
     public static int countCapitalLetters(String word) {
+        int capitalLetters = 0;
+        for (int i = 0; i < word.length(); i++){
 
-        return 0;
+            if (Integer.valueOf(word.charAt(i)) >= 65 && (Integer.valueOf(word.charAt(i)) <= 90)){
+                capitalLetters++;
+            }
+        }
+        return capitalLetters;
+
 
     }
 
